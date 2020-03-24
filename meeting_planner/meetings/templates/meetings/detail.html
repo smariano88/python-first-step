@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meeting.title}}</title>
+</head>
+
+<body>
+    <h1>{{meeting.title}}</h1>
+    <p>
+        This meetings has been scheduled on {{meeting.date}} at {{meeting.start_time}} in <b>{{meeting.room}}</b>.
+        It will last {{meeting.duration}} hour.
+    </p>
+    <br />
+    <br />
+    <br />
+    <p>
+        Click <a href="{% url 'home' %}">here</a> to go back home.
+    </p>
+</body>
+
+</html>

@@ -21,9 +21,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from website.views import about, welcome
+from meetings.views import detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', welcome),
+    path('', welcome, name='home'),
+    path('meetings/<int:id>', detail, name='detail'),
     path('about', about),
 ]
+
+admin.site.site_header = "Meeting room"
+admin.site.site_title = "Meeting room portal"
+admin.site.index_title = "Welcome to Meeting room Portal"

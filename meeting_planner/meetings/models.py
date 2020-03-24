@@ -7,7 +7,7 @@ class Room(models.Model):
     room_number = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
 class Meeting(models.Model):
     title = models.CharField(max_length=200)

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting room Portal</title>
+</head>
+
+<body>
+    <h1>Welcome to the Meeting Room Portal!</h1>
+    <p>This is a demo application for a Pluralsight course that I'm taking.</p>
+    <p>Please feel free to take a look around</p>
+    <br />
+    <h3>Scheduled meetings:</h3>
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <a href="{% url 'detail' meeting.id %}">
+                {{ meeting.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <br />
+    <br />
+    <p>If you want to go to the admin interface click <a href="/admin">here</a> to login.</p>
+</body>
+
+</html>

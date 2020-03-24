@@ -1,12 +1,13 @@
-# from django.shortcuts import render
 from django.http import HttpResponse
-from website.time_class import TimeClass
+from django.shortcuts import render
+from meetings.models import Meeting
 
-def welcome(unused_request):
-    time = TimeClass()
-    return HttpResponse(f"Welcome to the show! \
-                        <br/><br/> \
-                        <b>Current time is:</b> {time.now()}")
+
+def welcome(request):
+    return render(request, "website/welcome.html", {
+        "meetings": Meeting.objects.all(),
+    })
+
 
 def about(unused_request):
     return HttpResponse(f"<h1>About me</h1> \
