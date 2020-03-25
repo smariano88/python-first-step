@@ -12,11 +12,12 @@
     <p>This is a demo application for a Pluralsight course that I'm taking.</p>
     <p>Please feel free to take a look around</p>
     <br />
+    <p>To see a list of available rooms click <a href="{% url 'room_list' %}">here</a></p>
     <h3>Scheduled meetings:</h3>
     <ul>
         {% for meeting in meetings %}
         <li>
-            <a href="{% url 'detail' meeting.id %}">
+            <a href="{% url 'meeting_detail' meeting.id %}">
                 {{ meeting.title }}
             </a>
         </li>

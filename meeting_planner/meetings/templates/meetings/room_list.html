@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available rooms</title>
+</head>
+
+<body>
+    <h1>Available rooms</h1>
+    <ul>
+        {% for room in rooms %}
+        <li>
+            {{ room.name }}
+        </li>
+        {% endfor %}
+    </ul>
+    <p>
+        Click <a href="{% url 'home' %}">here</a> to go back home.
+    </p>
+</body>
+
+</html>

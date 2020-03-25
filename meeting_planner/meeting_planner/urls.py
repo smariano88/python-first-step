@@ -19,15 +19,14 @@ Including another URLconf
 #      CONST_NAME_RGX value
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from website.views import about, welcome
-from meetings.views import detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', welcome, name='home'),
-    path('meetings/<int:id>', detail, name='detail'),
     path('about', about),
+    path('meetings/', include('meetings.urls')),
 ]
 
 admin.site.site_header = "Meeting room"
