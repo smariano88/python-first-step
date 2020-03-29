@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting room Portal</title>
-</head>
+{% block title %}
+Welcome
+{% endblock %}
 
-<body>
-    <h1>Welcome to the Meeting Room Portal!</h1>
-    <p>This is a demo application for a Pluralsight course that I'm taking.</p>
-    <p>Please feel free to take a look around</p>
-    <br />
-    <p>To see a list of available rooms click <a href="{% url 'room_list' %}">here</a></p>
-    <h3>Scheduled meetings:</h3>
-    <ul>
-        {% for meeting in meetings %}
-        <li>
-            <a href="{% url 'meeting_detail' meeting.id %}">
-                {{ meeting.title }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-    <br />
-    <br />
-    <p>If you want to go to the admin interface click <a href="/admin">here</a> to login.</p>
-</body>
+{% block content %}
+<h1>Welcome to the Meeting Room Portal!</h1>
+<p>This is a demo application for a Pluralsight course that I'm taking.</p>
+<p>Please feel free to take a look around</p>
+<br />
+<p>To see a list of available rooms click <a href="{% url 'room_list' %}">here</a></p>
+<h3>Scheduled meetings:</h3>
+<ul>
+    {% for meeting in meetings %}
+    <li>
+        <a href="{% url 'meeting_detail' meeting.id %}">
+            {{ meeting.title }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<br />
+<br />
+<p>If you want to go to the admin interface click <a href="/admin">here</a> to login.</p>
 
-</html>
+{% endblock %}

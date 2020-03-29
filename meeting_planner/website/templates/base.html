@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}" />
+    <link rel="icon" href="{% static 'website/img/meeting.png' %}" type="image/png" />
+</head>
+
+<body>
+
+    {% block content %}
+
+    {% if show_go_back_button %}
+    <br />
+    <br />
+    <p>
+        Click <a href="{% url 'home' %}">here</a> to go back home.
+    </p>
+    {% endif %}
+    {% endblock  %}
+</body>
+
+</html>

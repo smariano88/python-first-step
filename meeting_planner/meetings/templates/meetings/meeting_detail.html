@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{meeting.title}}</title>
-</head>
+{% block title %}
+{{meeting.title}}
+{% endblock %}
 
-<body>
-    <h1>{{meeting.title}}</h1>
-    <p>
-        This meetings has been scheduled on {{meeting.date}} at {{meeting.start_time}} in <b>{{meeting.room}}</b>.
-        It will last {{meeting.duration}} hour.
-    </p>
-    <br />
-    <br />
-    <br />
-    <p>
-        Click <a href="{% url 'home' %}">here</a> to go back home.
-    </p>
-</body>
+{% block content %}
+<h1>{{meeting.title}}</h1>
+<p>
+    This meetings has been scheduled on {{meeting.date}} at {{meeting.start_time}} in <b>{{meeting.room}}</b>.
+    It will last {{meeting.duration}} hour.
+</p>
 
-</html>
+{% with show_go_back_button=True %}
+{{ block.super }}
+{% endwith%}
+
+{% endblock %}

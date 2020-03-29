@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available rooms</title>
-</head>
+{% block title %}
+Available rooms
+{% endblock %}
 
-<body>
-    <h1>Available rooms</h1>
-    <ul>
-        {% for room in rooms %}
-        <li>
-            {{ room.name }}
-        </li>
-        {% endfor %}
-    </ul>
-    <p>
-        Click <a href="{% url 'home' %}">here</a> to go back home.
-    </p>
-</body>
+{% block content %}
+<h1>Available rooms</h1>
+<ul>
+    {% for room in rooms %}
+    <li>
+        {{ room.name }}
+    </li>
+    {% endfor %}
+</ul>
 
-</html>
+{% with show_go_back_button=True %}
+{{ block.super }}
+{% endwith%}
+
+{% endblock %}
