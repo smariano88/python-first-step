@@ -1,5 +1,5 @@
 from django.forms import modelform_factory
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from meetings.models import Meeting, Room
 
 
@@ -17,5 +17,12 @@ MeetingForm = modelform_factory(Meeting, exclude=[])
 
 
 def new_meeting(request):
-    form = MeetingForm()
-    return render(request, "meetings/new_meeting.html", {"form": form})
+    if request.method == "POST":
+        meeting_form = MeetingForm(request.POST)
+        if meeting_form.is_valid():
+            meeting_form.save()
+            return redirect("home")
+    else:
+        meeting_form = MeetingForm()
+
+    return render(request, "meetings/new_meeting.html", {"form": meeting_form})

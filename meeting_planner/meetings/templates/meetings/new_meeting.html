@@ -7,10 +7,12 @@ New Meeting
 {% block content %}
 <h1>Schedule new meeting</h1>
 
-<form>
+<form method="post">
     <table>
         {{ form }}
     </table>
+    {% csrf_token %}
+    <button type="submit">Create</button>
 </form>
 
 {% with show_go_back_button=True %}
