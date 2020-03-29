@@ -1,7 +1,7 @@
-from meetings.models import Meeting
 from django.forms import ModelForm
 from django.forms.widgets import DateInput, TextInput, TimeInput
 from django.core.exceptions import ValidationError
+from meetings.models import Meeting
 from _datetime import date
 
 
@@ -16,7 +16,7 @@ class MeetingForm(ModelForm):
         }
 
     def clean_date(self):
-        d = self.cleaned_data.get("date")
-        if d < date.today():
+        meeting_date = self.cleaned_data.get("date")
+        if meeting_date < date.today():
             raise ValidationError("Meetings cannot be in the past")
-        return d
+        return meeting_date
